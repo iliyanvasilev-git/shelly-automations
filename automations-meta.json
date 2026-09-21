@@ -1,0 +1,1681 @@
+{
+  "switch": {
+    "methods": {
+      "set": {
+        "title": "Control output",
+        "params": {
+          "on": {
+            "title": "Output state",
+            "description": "True for switch on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Output state",
+              "required": true
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Optional flip-back timer in seconds.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          }
+        }
+      },
+      "toggle": {
+        "title": "Toggle output",
+        "params": {}
+      },
+      "setall": {
+        "title": "Control all outputs",
+        "params": {
+          "on": {
+            "title": "Output state",
+            "description": "True for switch on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Output state",
+              "required": true
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Optional flip-back timer in seconds.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          }
+        }
+      },
+      "setmany": {
+        "title": "Control multiple outputs",
+        "params": {
+          "on": {
+            "title": "Output state",
+            "description": "True for switch on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Output state",
+              "required": true
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Optional flip-back timer in seconds.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "fan": {
+    "methods": {
+      "set": {
+        "title": "Control fan",
+        "params": {
+          "mode": {
+            "title": "Mode",
+            "description": "Operation mode of the component. Range of values: manual, auto.",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Mode",
+              "options": ["manual", "auto"],
+              "defaultValue": "manual",
+              "required": false
+            }
+          },
+          "on": {
+            "title": "Fan state",
+            "description": "True for fan on, false otherwise. Required for mode=manual, should not be set for mode=auto.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Fan state",
+              "required": true
+            }
+          },
+          "speed": {
+            "title": "Speed",
+            "description": "Fan speed for manual mode. Optional for mode=manual, should not be set for mode=auto. Boundaries [1, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Speed",
+              "min": 1,
+              "max": 100,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "light": {
+    "methods": {
+      "set": {
+        "title": "Control light",
+        "params": {
+          "on": {
+            "title": "Light state",
+            "description": "True for light on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Light state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level to desired brightness level in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Set current brightness level with applied offset. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          }
+        }
+      },
+      "toggle": {
+        "title": "Toggle light",
+        "params": {}
+      },
+      "setall": {
+        "title": "Control all lights",
+        "params": {
+          "on": {
+            "title": "Light state",
+            "description": "True for light on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Light state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Relative brightness adjustment applied to each light's current level. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level to desired brightness level in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          }
+        }
+      },
+      "setmany": {
+        "title": "Control multiple lights",
+        "params": {
+          "on": {
+            "title": "Light state",
+            "description": "True for light on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Light state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Relative brightness adjustment applied to each light's current level. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level to desired brightness level in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          }
+        }
+      },
+      "dimstop": {
+        "title": "Dim stop light",
+        "params": {}
+      },
+      "dimup": {
+        "title": "Dim up light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest. If not provided, value is defaulted to button_fade_rate.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      },
+      "dimdown": {
+        "title": "Dim down light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest. If not provided, value is defaulted to button_fade_rate.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "cover": {
+    "methods": {
+      "open": {
+        "title": "Open cover",
+        "params": {}
+      },
+      "close": {
+        "title": "Close cover",
+        "params": {}
+      },
+      "stop": {
+        "title": "Stop cover",
+        "params": {}
+      },
+      "gotoposition": {
+        "title": "Move cover to specific position",
+        "params": {
+          "pos": {
+            "title": "Target position",
+            "description": "Target position in %, allowed range [0..100]. Mutually exclusive with rel.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Target position",
+              "min": 0,
+              "max": 100,
+              "required": true
+            }
+          },
+          "slat_pos": {
+            "title": "Slats position",
+            "description": "Only available if slat control is supported. Slat position in %, allowed range [0..100].",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Slats position",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "slat_rel": {
+            "title": "Relative slats position",
+            "description": "Only available if slat control is supported. Relative slat move in %, allowed range [-100..100].",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Relative slats position",
+              "min": -100,
+              "max": 100,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "rgb": {
+    "methods": {
+      "set": {
+        "title": "Control RGB light",
+        "params": {
+          "on": {
+            "title": "Light state",
+            "description": "True for output on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Light state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "rgb": {
+            "title": "Color",
+            "description": "Red, Green, Blue [r,g,b] - each value represents level between 0..255.",
+            "form": {
+              "value": "color",
+              "formElement": "color-wheel",
+              "label": "Color",
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level and color to desired brightness level and color in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Set current brightness level with applied offset. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          }
+        }
+      },
+      "toggle": {
+        "title": "Toggle RGB light",
+        "params": {}
+      },
+      "dimstop": {
+        "title": "Dim stop RGB light",
+        "params": {}
+      },
+      "dimup": {
+        "title": "Dim up RGB light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      },
+      "dimdown": {
+        "title": "Dim down RGB light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "rgbw": {
+    "methods": {
+      "set": {
+        "title": "Control RGBW light",
+        "params": {
+          "on": {
+            "title": "Light state",
+            "description": "True for output on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Light state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "rgb": {
+            "title": "Color",
+            "description": "Red, Green, Blue [r,g,b] - each value represents level between 0..255.",
+            "form": {
+              "value": "color",
+              "formElement": "color-wheel",
+              "label": "Color",
+              "required": false
+            }
+          },
+          "white": {
+            "title": "White",
+            "description": "White level [0, 255]. Can not be used together with offset_white.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "White",
+              "min": 0,
+              "max": 255,
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level and color to desired brightness level and color in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Set current brightness level with applied offset. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          },
+          "offset_white": {
+            "title": "White offset",
+            "description": "Set current white level with applied offset_white. Can not be used together with white. Boundaries [-255, 255].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "White offset",
+              "min": -255,
+              "max": 255,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          }
+        }
+      },
+      "toggle": {
+        "title": "Toggle RGB light",
+        "params": {}
+      },
+      "dimstop": {
+        "title": "Dim stop RGB light",
+        "params": {}
+      },
+      "dimup": {
+        "title": "Dim up RGB light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      },
+      "dimdown": {
+        "title": "Dim down RGB light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "cct": {
+    "methods": {
+      "set": {
+        "title": "Control CCT light",
+        "params": {
+          "on": {
+            "title": "CCT light state",
+            "description": "True for light on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "CCT light state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level to desired brightness level and current color temperature level to desired color temperature level in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          },
+          "ct": {
+            "title": "Color temperature",
+            "description": "Color temperature level (in Kelvin).",
+            "form": {
+              "value": "ct",
+              "formElement": "slider",
+              "label": "Color temperature",
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Set current brightness level with applied offset. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "unit": "percent",
+              "required": false
+            }
+          }
+        }
+      },
+      "toggle": {
+        "title": "Toggle CCT light",
+        "params": {}
+      },
+      "dimstop": {
+        "title": "Dim stop CCT light",
+        "params": {}
+      },
+      "dimup": {
+        "title": "Dim up CCT light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      },
+      "dimdown": {
+        "title": "Dim down CCT light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "rgbcct": {
+    "methods": {
+      "set": {
+        "title": "Control RGBCCT light",
+        "params": {
+          "mode": {
+            "title": "RGBCCT mode",
+            "description": "Operating mode of the light output.",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "RGBCCT mode",
+              "options": ["rgb", "cct"],
+              "defaultValue": "rgb",
+              "required": false
+            }
+          },
+          "on": {
+            "title": "RGBCCT state",
+            "description": "True for output on, false otherwise.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "RGBCCT state",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Brightness",
+            "description": "Brightness level 0%-100%. Can not be used together with offset.",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          },
+          "toggle_after": {
+            "title": "Flip value after",
+            "description": "Flip-back timer in seconds. Requires on to be present in the request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Flip value after",
+              "min": 0,
+              "max": 2147483,
+              "required": false
+            }
+          },
+          "rgb": {
+            "title": "Color",
+            "description": "Red, Green, Blue [r,g,b] - each value represents level between 0..255.",
+            "form": {
+              "value": "color",
+              "formElement": "color-wheel",
+              "label": "Color",
+              "required": false
+            }
+          },
+          "ct": {
+            "title": "Color temperature",
+            "description": "Color temperature level (in Kelvin).",
+            "form": {
+              "value": "ct",
+              "formElement": "slider",
+              "label": "Color temperature",
+              "required": false
+            }
+          },
+          "transition_duration": {
+            "title": "Transition duration",
+            "description": "Transition time in seconds - time between change from current brightness level and color to desired brightness level and color or current color temperature level to desired color temperature level in request.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Transition duration",
+              "min": 0.5,
+              "max": 10800,
+              "step": "0.1",
+              "unit": "seconds",
+              "required": false
+            }
+          },
+          "offset": {
+            "title": "Offset",
+            "description": "Set current brightness level with applied offset. Can not be used together with brightness. Boundaries [-100, 100].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Offset",
+              "min": -100,
+              "max": 100,
+              "step": 1,
+              "unit": "percent",
+              "required": false
+            }
+          }
+        }
+      },
+      "toggle": {
+        "title": "Toggle RGBCCT light",
+        "params": {}
+      },
+      "dimstop": {
+        "title": "Dim stop RGBCCT light",
+        "params": {}
+      },
+      "dimup": {
+        "title": "Dim up RGBCCT light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      },
+      "dimdown": {
+        "title": "Dim down RGBCCT light",
+        "params": {
+          "fade_rate": {
+            "title": "Fade rate",
+            "description": "Fade rate of the brightness level dimming. Range [1,5] where 5 is fastest, 1 is slowest.",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Fade rate",
+              "options": [1, 2, 3, 4, 5],
+              "defaultValue": 3,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "cb": {
+    "methods": {
+      "set": {
+        "title": "Toggle output",
+        "params": {
+          "output": {
+            "title": "Output",
+            "description": "false to disengage the breaker.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Output",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "boolean": {
+    "methods": {
+      "set": {
+        "title": "Set virtual boolean value",
+        "params": {
+          "value": {
+            "title": "Value",
+            "description": "Boolean value.",
+            "form": {
+              "value": "boolean",
+              "formElement": "virtual-boolean",
+              "label": "Value",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "text": {
+    "methods": {
+      "set": {
+        "title": "Set virtual text value",
+        "params": {
+          "value": {
+            "title": "Value",
+            "description": "String to be saved.",
+            "form": {
+              "value": "string",
+              "formElement": "virtual-text",
+              "label": "Value",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "number": {
+    "methods": {
+      "set": {
+        "title": "Set virtual number value",
+        "params": {
+          "value": {
+            "title": "Value",
+            "description": "Number to be saved.",
+            "form": {
+              "value": "number",
+              "formElement": "virtual-number",
+              "label": "Value",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "enum": {
+    "methods": {
+      "set": {
+        "title": "Set virtual enum value",
+        "params": {
+          "value": {
+            "title": "Value",
+            "description": "One of the items from options or null.",
+            "form": {
+              "value": "string",
+              "formElement": "virtual-enum",
+              "label": "Value",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "button": {
+    "methods": {
+      "trigger": {
+        "title": "Send virtual button event",
+        "params": {
+          "event": {
+            "title": "Event",
+            "description": "Event name. Range of values: single_push, double_push, triple_push, long_push.",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Event",
+              "options": ["single_push", "double_push", "triple_push", "long_push"],
+              "defaultValue": "single_push",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "input": {
+    "methods": {
+      "trigger": {
+        "title": "Send input event",
+        "params": {
+          "event_type": {
+            "title": "Event type",
+            "description": "Event to be emitted, one of: btn_down, btn_up, single_push, double_push, triple_push and long_push.",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Event type",
+              "options": ["single_push", "double_push", "triple_push", "long_push"],
+              "defaultValue": "single_push",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "blutrv": {
+    "methods": {
+      "call.settarget": {
+        "title": "Control TRV temperature",
+        "params": {
+          "target_C": {
+            "title": "Temperature",
+            "description": "Target temperature.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Temperature",
+              "min": 4,
+              "max": 30,
+              "unit": "°C",
+              "required": true
+            }
+          }
+        }
+      },
+      "call.setposition": {
+        "title": "Control TRV position",
+        "params": {
+          "pos": {
+            "title": "Position",
+            "description": "TRV valve position (TRV must be disabled).",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Position (TRV must be disabled)",
+              "min": 0,
+              "max": 100,
+              "unit": "%",
+              "required": true
+            }
+          }
+        }
+      },
+      "call.setboost": {
+        "title": "Start TRV boost",
+        "params": {
+          "duration": {
+            "title": "Duration",
+            "description": "Boost duration.",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Duration",
+              "min": 0,
+              "max": 35791394,
+              "unit": "minutes",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "presencezone": {
+    "methods": {
+      "setconfig": {
+        "title": "Control zone",
+        "params": {
+          "enable": {
+            "title": "Enable",
+            "description": "Activate or deactivate zone.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Enable"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cury": {
+    "methods": {
+      "set": {
+        "title": "Control Cury",
+        "params": {
+          "on": {
+            "title": "Cury state",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Cury state",
+              "required": true
+            }
+          },
+          "intensity": {
+            "title": "Intensity",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Intensity",
+              "min": 0,
+              "max": 100,
+              "required": true
+            }
+          },
+          "slot": {
+            "title": "Slot",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Slot",
+              "options": ["left", "right"],
+              "defaultValue": "left",
+              "required": true
+            }
+          }
+        }
+      },
+      "setconfig": {
+        "title": "Control ambient light",
+        "params": {
+          "enable": {
+            "title": "Enable ambient light",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Enable ambient light"
+            }
+          },
+          "use_vial_color": {
+            "title": "Use vial color",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Use vial color"
+            }
+          },
+          "color": {
+            "title": "Ambient color",
+            "form": {
+              "value": "color",
+              "formElement": "color-wheel",
+              "label": "Ambient color",
+              "required": false
+            }
+          },
+          "brightness": {
+            "title": "Ambient brightness",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Ambient brightness",
+              "min": 0,
+              "max": 100,
+              "required": false
+            }
+          }
+        }
+      },
+      "boost": {
+        "title": "Start boost",
+        "params": {
+          "slot": {
+            "title": "Slot",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Slot",
+              "options": ["left", "right"],
+              "defaultValue": "left",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "media": {
+    "methods": {
+      "mediaplayer.play": {
+        "title": "Play audio",
+        "params": {
+          "id": {
+            "title": "Audio id",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Audio id",
+              "options": [],
+              "required": true
+            }
+          },
+          "volume": {
+            "title": "Volume",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Volume",
+              "min": 0,
+              "max": 10,
+              "required": false
+            }
+          },
+          "text": {
+            "title": "Text",
+            "form": {
+              "value": "string",
+              "formElement": "input",
+              "label": "Text",
+              "required": false
+            }
+          }
+        }
+      },
+      "radio.playfavourite": {
+        "title": "Play radio",
+        "params": {
+          "id": {
+            "title": "Radio id",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Radio id",
+              "options": [],
+              "required": true
+            }
+          },
+          "volume": {
+            "title": "Volume",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Volume",
+              "min": 0,
+              "max": 10,
+              "required": false
+            }
+          },
+          "text": {
+            "title": "Text",
+            "form": {
+              "value": "string",
+              "formElement": "input",
+              "label": "Text",
+              "required": false
+            }
+          }
+        }
+      },
+      "mediaplayer.playringtone": {
+        "title": "Play ringtone",
+        "params": {
+          "id": {
+            "title": "Ringtone id",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Ringtone id",
+              "options": [],
+              "required": true
+            }
+          },
+          "volume": {
+            "title": "Volume",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Volume",
+              "min": 0,
+              "max": 10,
+              "required": false
+            }
+          },
+          "text": {
+            "title": "Text",
+            "form": {
+              "value": "string",
+              "formElement": "input",
+              "label": "Text",
+              "required": false
+            }
+          },
+          "repeat": {
+            "title": "Repeat",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Repeat",
+              "required": false
+            }
+          }
+        }
+      },
+      "mediaplayer.playalert": {
+        "title": "Play alert",
+        "params": {
+          "id": {
+            "title": "Alert id",
+            "form": {
+              "value": "number",
+              "formElement": "select",
+              "label": "Alert id",
+              "options": [],
+              "required": true
+            }
+          },
+          "volume": {
+            "title": "Volume",
+            "form": {
+              "value": "number",
+              "formElement": "slider",
+              "label": "Volume",
+              "min": 0,
+              "max": 10,
+              "required": false
+            }
+          },
+          "text": {
+            "title": "Text",
+            "form": {
+              "value": "string",
+              "formElement": "input",
+              "label": "Text",
+              "required": false
+            }
+          },
+          "repeat": {
+            "title": "Repeat",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Repeat",
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "camera": {
+    "methods": {
+      "captureimage": {
+        "title": "Capture image",
+        "params": {}
+      },
+      "startrecording": {
+        "title": "Start recording",
+        "params": {
+          "duration": {
+            "title": "Duration",
+            "description": "Recording duration in seconds (default 60).",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Duration",
+              "min": 1,
+              "max": 3600,
+              "unit": "secs",
+              "required": false
+            }
+          }
+        }
+      },
+      "set": {
+        "title": "Configure camera",
+        "params": {
+          "arm": {
+            "title": "Motion detection",
+            "description": "Whether the camera is armed.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Motion detection",
+              "required": false
+            }
+          },
+          "privacy": {
+            "title": "Privacy mode",
+            "description": "Privacy mode. When enabled, the streamer is suspended.",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Privacy mode",
+              "required": false
+            }
+          }
+        }
+      },
+      "playsound": {
+        "title": "Play sound",
+        "params": {
+          "sound": {
+            "title": "Preset sound",
+            "description": "Name of a built-in sound to play.",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Preset sound",
+              "options": ["alert", "ding-dong", "notification"],
+              "defaultValue": "alert",
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ircode": {
+    "methods": {
+      "emit": {
+        "title": "Emit IR code",
+        "params": {
+          "repeats": {
+            "title": "Repeats",
+            "description": "Number of extra repeats after the first transmission (0 = send once). Accepted range: [0..10].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Repeats",
+              "min": 0,
+              "max": 10,
+              "defaultValue": 0,
+              "required": false
+            }
+          },
+          "after": {
+            "title": "Delay before emitting the code",
+            "description": "Delay in seconds before the first transmission and between repeats. Accepted range: [0..10].",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Delay before emitting the code",
+              "min": 0,
+              "max": 10,
+              "unit": "secs",
+              "defaultValue": 0,
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "pilotwire": {
+    "methods": {
+      "set": {
+        "title": "Set heating mode",
+        "params": {
+          "mode": {
+            "title": "Heating mode",
+            "description": "Heating mode to set. Range of values: comfort, eco, frost_protect, off, comfort-1, comfort-2.",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Heating mode",
+              "options": ["comfort", "eco", "frost_protect", "off", "comfort-1", "comfort-2"],
+              "defaultValue": "comfort",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "lnm": {
+    "methods": {
+      "call.set": {
+        "title": "LNM set output",
+        "params": {
+          "component_type": {
+            "title": "Component type",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Component type",
+              "options": ["switch", "light", "cct", "rgb", "rgbw", "rgbcct"],
+              "defaultValue": "switch",
+              "required": true
+            }
+          },
+          "component_id": {
+            "title": "Component ID",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Component ID",
+              "min": 0,
+              "max": 255,
+              "defaultValue": 0,
+              "required": true
+            }
+          },
+          "on": {
+            "title": "Output state",
+            "form": {
+              "value": "boolean",
+              "formElement": "radio",
+              "label": "Output state",
+              "defaultValue": true,
+              "required": true
+            }
+          }
+        }
+      },
+      "call.toggle": {
+        "title": "LNM toggle output",
+        "params": {
+          "component_type": {
+            "title": "Component type",
+            "form": {
+              "value": "string",
+              "formElement": "select",
+              "label": "Component type",
+              "options": ["switch", "light", "cct", "rgb", "rgbw", "rgbcct"],
+              "defaultValue": "switch",
+              "required": true
+            }
+          },
+          "component_id": {
+            "title": "Component ID",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Component ID",
+              "min": 0,
+              "max": 255,
+              "defaultValue": 0,
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "sprinklerzone": {
+    "methods": {
+      "start": {
+        "title": "Start zone",
+        "params": {
+          "duration": {
+            "title": "Duration (minutes)",
+            "form": {
+              "value": "number",
+              "formElement": "input",
+              "label": "Duration (minutes)",
+              "min": 1,
+              "max": 120,
+              "unit": "minutes",
+              "required": false
+            }
+          }
+        }
+      },
+      "stop": {
+        "title": "Stop zone",
+        "params": {}
+      }
+    }
+  },
+  "sprinklersequence": {
+    "methods": {
+      "start": {
+        "title": "Start sequence",
+        "params": {}
+      },
+      "stop": {
+        "title": "Stop sequence",
+        "params": {}
+      }
+    }
+  }
+}
